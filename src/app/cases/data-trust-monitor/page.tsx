@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./page.module.css";
 import { TrustMonitor } from "./TrustMonitor";
 
@@ -20,6 +21,7 @@ export default function DataTrustMonitorPage() {
     <main className="wrap">
       <div className="page">
         <header className="header">
+          <Link className="back" href="/">← All cases</Link>
           <span className="eyebrow">Case 01</span>
           <h1 className="title">Data Trust Monitor</h1>
           <p className="muted lede">
