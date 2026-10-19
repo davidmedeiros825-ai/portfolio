@@ -1,69 +1,78 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+
+const cases = [
+  {
+    n: "01",
+    title: "Data Trust Monitor",
+    desc: "Reconciling a transaction pipeline with the official ledger and catching fraud with daily invariants.",
+  },
+  {
+    n: "02",
+    title: "Segmentation & Holdout Lab",
+    desc: "Behavioral segmentation with circuit breakers, and campaign lift measured against a control group.",
+  },
+  {
+    n: "03",
+    title: "BI Agent with Evals",
+    desc: "A natural-language BI agent where every number in the answer is validated against the database.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="wrap">
+      <div className={styles.page}>
+        <header className={styles.header}>
+          <span className="eyebrow">Data · CRM · AI systems</span>
+          <h1 className={styles.title}>David Medeiros</h1>
+          <p className={`muted ${styles.lede}`}>
+            I design data and AI systems for business, direct AI agents to build them, and verify
+            every output against the source of truth.
           </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          <div className={styles.links}>
+            <a
+              href="https://www.linkedin.com/in/david-medeiros-693453253/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/davidmedeiros825-ai/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+        </header>
+
+        <section className={styles.section}>
+          <span className="eyebrow">Case studies</span>
+          <ol className={styles.cards}>
+            {cases.map((c) => (
+              <li key={c.n} className={styles.card}>
+                <span className="mono muted">{c.n}</span>
+                <h2 className={styles.cardTitle}>{c.title}</h2>
+                <p className={`muted ${styles.desc}`}>{c.desc}</p>
+                <span className={styles.pill}>In progress</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className={styles.section}>
+          <span className="eyebrow">Background</span>
+          <div className={styles.lines}>
+            <p>Former Head of Data &amp; Strategy for two licensed online gaming operators (1M+ events/day).</p>
+            <p>Product &amp; Platform Lead at Pontto AI, building with a multi-agent engineering workflow.</p>
+          </div>
+        </section>
+
+        <footer className={`muted ${styles.footer}`}>
+          <p>All demos run on synthetic data generated for this site. The original systems were proprietary.</p>
+        </footer>
+      </div>
+    </main>
   );
 }
