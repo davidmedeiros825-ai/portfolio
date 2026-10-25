@@ -1,34 +1,35 @@
 import type { Metadata } from "next";
-import { Schibsted_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Archivo, Public_Sans, IBM_Plex_Mono } from "next/font/google";
+import { en } from "@/content/en";
 import "./globals.css";
 
-const display = Schibsted_Grotesk({
+const display = Archivo({
   subsets: ["latin"],
-  weight: ["500", "700"],
+  axes: ["wdth"],
   variable: "--font-display",
 });
-const body = IBM_Plex_Sans({
+const body = Public_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   variable: "--font-body",
 });
-const mono = IBM_Plex_Mono({
+const data = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-mono",
+  variable: "--font-data",
 });
 
 export const metadata: Metadata = {
-  title: "David Medeiros",
-  description:
-    "Data, CRM and AI systems for business. Case studies with live demos on synthetic data.",
+  title: en.meta.title,
+  description: en.meta.description,
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${data.variable}`}>
       <body>{children}</body>
     </html>
   );
