@@ -1,43 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { demo } from "@/content/demo";
 import styles from "./page.module.css";
 import { TrustMonitor } from "./TrustMonitor";
 
-const writeup = [
-  ["Problem", "Two sources disagreed on the same number, and the pipeline also carried a fraud that inflated volume."],
-  ["Architecture", "Synthetic generator, pipeline with injectable faults, ledger, invariants, grid."],
-  [
-    "Decisions",
-    "Anchored baseline over moving average; reconciliation and invariants as separate controls (reconciliation validates transport, invariants validate internal consistency); materiality thresholds to keep alerts near 1 per day.",
-  ],
-  ["Verification", "Unit tests prove each invariant fires on its planted fault and stays silent on clean data."],
-  [
-    "Original system",
-    "BigQuery + Python + Postgres functions, daily schedule. This demo reproduces the logic, not the code.",
-  ],
-];
+export const metadata: Metadata = { title: `${demo.title} · David Medeiros` };
 
 export default function DataTrustMonitorPage() {
   return (
-    <main className="wrap">
-      <div className="page">
-        <header className="header">
-          <Link className="back" href="/">← All cases</Link>
-          <span className="eyebrow">Case 01</span>
-          <h1 className="title">Data Trust Monitor</h1>
-          <p className="muted lede">
-            Reconciling a transaction pipeline with the official ledger, and catching what reconciliation alone
-            misses.
-          </p>
+    <div className="wrap">
+      <main className={styles.page}>
+        <header className={styles.head}>
+          <Link className="back" href="/cases/cancelled-bets">{demo.back}</Link>
+          <h1 className={styles.title}>{demo.title}</h1>
+          <p className={styles.intro}>{demo.lede}</p>
         </header>
 
         <TrustMonitor />
 
         <section className={styles.block} aria-labelledby="writeup">
-          <h2 id="writeup" className={styles.h2}>
-            Write-up
-          </h2>
+          <h2 id="writeup" className={styles.h2}>{demo.writeupTitle}</h2>
           <ul className={styles.writeup}>
-            {writeup.map(([label, text]) => (
+            {demo.writeup.map(([label, text]) => (
               <li key={label}>
                 <strong>{label}:</strong> {text}
               </li>
@@ -45,10 +29,10 @@ export default function DataTrustMonitorPage() {
           </ul>
         </section>
 
-        <footer className="muted footer">
-          <p>Synthetic data, fixed seed.</p>
+        <footer className={styles.footer}>
+          <p>{demo.footer}</p>
         </footer>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
