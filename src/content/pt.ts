@@ -2,11 +2,12 @@ import type { Dict } from "./en";
 
 export const pt: Dict = {
   htmlLang: "pt-BR",
-  paths: { home: "/pt", case: "/pt/cases/cancelled-bets", other: { home: "/", case: "/cases/cancelled-bets" } },
+  paths: { home: "/pt", case: "/pt/cases/cancelled-bets", coffee: "/pt/cases/vacuum-coffee", other: { coffee: "/cases/vacuum-coffee", home: "/", case: "/cases/cancelled-bets" } },
   meta: {
     title: "David Medeiros · Dados, CRM e IA",
     description: "Eu descubro onde um negócio perde dinheiro e depois construo as ferramentas de dados e IA que resolvem.",
     caseTitle: "Apostas canceladas ainda contavam como volume · David Medeiros",
+    coffeeTitle: "O café a vácuo perdia o vácuo · David Medeiros",
   },
   nav: {
     aria: "Principal",
@@ -57,6 +58,7 @@ export const pt: Dict = {
     readCase: "Ler o case →",
     items: [
       {
+        link: "case",
         org: "Jogos online",
         role: "Head de Dados e Estratégia",
         period: "2025 a 2026",
@@ -69,6 +71,7 @@ export const pt: Dict = {
         ],
       },
       {
+        link: "",
         org: "Jogos online",
         role: "Head de Dados e Estratégia",
         period: "2025 a 2026",
@@ -80,6 +83,7 @@ export const pt: Dict = {
         ],
       },
       {
+        link: "",
         org: "Jogos online",
         role: "Head de Dados e Estratégia",
         period: "2025 a 2026",
@@ -88,6 +92,7 @@ export const pt: Dict = {
         chips: [{ label: "Crescer o LTV", on: true }],
       },
       {
+        link: "coffee",
         org: "Indústria de café",
         role: "Analista de Produtividade Industrial",
         period: "Grupo 3corações · 2024 a 2025",
@@ -236,6 +241,74 @@ export const pt: Dict = {
       title: "Teste você mesmo",
       text: "Ligue e desligue a fraude, uma queda no feed e linhas duplicadas, e veja qual checagem diária pega cada uma.",
       button: "Abrir a demo ao vivo",
+    },
+  },
+  coffee: {
+    back: "← Todos os casos",
+    label: "Caso 04 · Indústria de café · Operação e custo",
+    title: "O café embalado a vácuo perdia o vácuo no caminho até a prateleira. Reduzimos as avarias em 40%.",
+    facts: [
+      { dt: "Meu papel", dd: "Analista de Produtividade Industrial" },
+      { dt: "Empresa", dd: "Grupo 3corações, Natal" },
+      { dt: "Dados cruzados", dd: "Lotes, logística, lojas, reclamações" },
+      { dt: "Tempo até o resultado", dd: "3 meses" },
+    ],
+    chain: {
+      aria: "O caminho de um pacote de café, da fábrica ao cliente",
+      head: "Por onde o pacote passa, e os dados que cruzei",
+      tag: "Um pacote, quatro fontes",
+      svgLabel:
+        "Fábrica, logística, loja e cliente, cada um com seus dados: lotes de produção, transporte e armazenagem, registros da loja e reclamações.",
+      stages: [
+        { name: "Fábrica, Natal", sub: "lotes de produção" },
+        { name: "Logística", sub: "transporte e armazenagem" },
+        { name: "Loja", sub: "recebimento e gôndola" },
+        { name: "Cliente", sub: "reclamações" },
+      ],
+      base: "A avaria aparece na gôndola, mas pode começar em qualquer etapa antes dela",
+    },
+    s1: {
+      step: "1 · O negócio",
+      title: "Como um pacote perde dinheiro",
+      p1: "O café a vácuo é vendido com a promessa de chegar fresco. Um pacote que perde o vácuo não pode ser vendido: volta, é descartado ou, pior, chega a um cliente que reclama.",
+      formula: "Um pacote perdido = café + embalagem + frete + uma venda que não aconteceu",
+      p2: "Quando ele falha, o produto já foi feito, transportado e pago. Cada pacote avariado é dinheiro gasto duas vezes.",
+    },
+    s2: {
+      step: "2 · O vazamento",
+      title: "Todo mundo via a avaria, ninguém era dono dela",
+      p1: "Os pacotes saíam lacrados da fábrica e chegavam murchos na loja. Cada área via só a sua parte do caminho, com os seus dados. Então o problema não era de ninguém e sempre voltava.",
+    },
+    s3: {
+      step: "3 · O que eu fiz",
+      title: "Seguir o pacote e entregar a cada área a sua etapa",
+      items: [
+        { bold: "Cruzei quatro fontes", text: " ao longo de três meses: lotes de produção, registros de logística, registros das lojas e reclamações de clientes." },
+        { bold: "Rastreei cada avaria", text: " até a etapa onde ela começou, por lote, rota e loja, e não onde ela foi encontrada." },
+        { bold: "Mostrei que a causa era processo, não produto:", text: " as avarias se concentravam onde os passos padrão não eram seguidos." },
+        { bold: "Transformei os achados em procedimentos", text: " e planos de ação, apresentei nas reuniões gerais do projeto e entreguei cada um à unidade responsável: fábrica, logística ou comercial." },
+      ],
+    },
+    s4: {
+      step: "4 · O resultado",
+      title: "O que mudou",
+      results: [
+        { num: "−40%", text: "de pacotes avariados" },
+        { num: "3 meses", text: "do primeiro cruzamento de dados até o resultado" },
+        { num: "3 áreas", text: "fábrica, logística e comercial seguindo os mesmos procedimentos" },
+      ],
+      closing:
+        "A solução não foi uma máquina nova nem uma embalagem nova. Foi cada área saber exatamente qual etapa era dela, e cumprir.",
+    },
+    s5: {
+      step: "O que aprendi",
+      title: "O dado acha a etapa, a reunião resolve",
+      text: "Um problema que atravessa três áreas não é número de ninguém. Mostrar a cada área a sua etapa nos dados trocou a busca por culpados por um plano de ação que elas podiam assumir.",
+    },
+    next: {
+      title: "Leia o outro caso",
+      text: "Apostas canceladas ainda contavam como volume. Como uma conciliação revelou isso, e as checagens diárias que agora pegam no primeiro dia.",
+      button: "Abrir o caso",
     },
   },
 };

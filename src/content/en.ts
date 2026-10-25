@@ -1,10 +1,11 @@
 export const en = {
   htmlLang: "en",
-  paths: { home: "/", case: "/cases/cancelled-bets", other: { home: "/pt", case: "/pt/cases/cancelled-bets" } },
+  paths: { home: "/", case: "/cases/cancelled-bets", coffee: "/cases/vacuum-coffee", other: { coffee: "/pt/cases/vacuum-coffee", home: "/pt", case: "/pt/cases/cancelled-bets" } },
   meta: {
     title: "David Medeiros · Data, CRM & AI",
     description: "I find where a business leaks money, then build the data and AI tools that fix it.",
     caseTitle: "Cancelled bets were still counted as volume · David Medeiros",
+    coffeeTitle: "Vacuum-packed coffee was losing its vacuum · David Medeiros",
   },
   nav: {
     aria: "Main",
@@ -55,6 +56,7 @@ export const en = {
     readCase: "Read the case →",
     items: [
       {
+        link: "case",
         org: "Online gaming",
         role: "Head of Data & Strategy",
         period: "2025 to 2026",
@@ -67,6 +69,7 @@ export const en = {
         ],
       },
       {
+        link: "",
         org: "Online gaming",
         role: "Head of Data & Strategy",
         period: "2025 to 2026",
@@ -78,6 +81,7 @@ export const en = {
         ],
       },
       {
+        link: "",
         org: "Online gaming",
         role: "Head of Data & Strategy",
         period: "2025 to 2026",
@@ -86,6 +90,7 @@ export const en = {
         chips: [{ label: "Grow LTV", on: true }],
       },
       {
+        link: "coffee",
         org: "Coffee manufacturing",
         role: "Industrial Productivity Analyst",
         period: "Grupo 3corações · 2024 to 2025",
@@ -234,6 +239,74 @@ export const en = {
       title: "Try it yourself",
       text: "Switch the exploit, a feed outage and duplicated rows on and off, and watch which daily check catches each one.",
       button: "Open the live demo",
+    },
+  },
+  coffee: {
+    back: "← All cases",
+    label: "Case 04 · Coffee manufacturing · Operations and cost",
+    title: "Vacuum-packed coffee was losing its vacuum on the way to the shelf. We cut damages by 40%.",
+    facts: [
+      { dt: "My role", dd: "Industrial Productivity Analyst" },
+      { dt: "Company", dd: "Grupo 3corações, Natal" },
+      { dt: "Data crossed", dd: "Batches, logistics, stores, complaints" },
+      { dt: "Time to result", dd: "3 months" },
+    ],
+    chain: {
+      aria: "The path of a coffee pack, from the factory to the customer",
+      head: "Where the pack travels, and the data I crossed",
+      tag: "One pack, four sources",
+      svgLabel:
+        "Factory, logistics, store and customer, each with its own data: production batches, transport and storage, store records and complaints.",
+      stages: [
+        { name: "Factory, Natal", sub: "production batches" },
+        { name: "Logistics", sub: "transport and storage" },
+        { name: "Store", sub: "receiving and shelf" },
+        { name: "Customer", sub: "complaints" },
+      ],
+      base: "The damage is seen at the shelf, but it can start at any step before it",
+    },
+    s1: {
+      step: "1 · The business",
+      title: "How a pack loses money",
+      p1: "Vacuum-packed coffee is sold on the promise that it arrives fresh. A pack that loses its vacuum can't be sold: it is returned, written off or, worse, reaches a customer who complains.",
+      formula: "One lost pack = coffee + packaging + freight + a sale that didn't happen",
+      p2: "By the time it fails, the product was already made, shipped and paid for. Every damaged pack is money spent twice.",
+    },
+    s2: {
+      step: "2 · The leak",
+      title: "Everyone saw the damage, nobody owned it",
+      p1: "Packs left the factory sealed and showed up soft at the store. Each area saw only its own part of the path, with its own data, so the problem belonged to no one and kept coming back.",
+    },
+    s3: {
+      step: "3 · What I did",
+      title: "Follow the pack, then hand each area its step",
+      items: [
+        { bold: "Crossed four sources", text: " over three months: production batches, logistics records, store records and customer complaints." },
+        { bold: "Traced each damage back", text: " to the step where it started, by batch, route and store, instead of where it was found." },
+        { bold: "Showed the cause was process, not product:", text: " the damage concentrated where standard steps were not being followed." },
+        { bold: "Turned the findings into procedures", text: " and action plans, presented them in the project-wide meetings and handed each one to the unit responsible: factory, logistics or sales." },
+      ],
+    },
+    s4: {
+      step: "4 · The result",
+      title: "What changed",
+      results: [
+        { num: "−40%", text: "damaged packs" },
+        { num: "3 months", text: "from the first data cross to the result" },
+        { num: "3 areas", text: "factory, logistics and sales following the same procedures" },
+      ],
+      closing:
+        "The fix was not a new machine or a new package. It was each area knowing exactly which step was theirs, and following it.",
+    },
+    s5: {
+      step: "What I learned",
+      title: "Data finds the step, the meeting fixes it",
+      text: "A problem that crosses three areas is nobody's number. Showing each area its own step in the data turned blame into an action plan they could own.",
+    },
+    next: {
+      title: "Read the other case",
+      text: "Cancelled bets were still counted as volume. How a reconciliation exposed it, and the daily checks that now catch it on day one.",
+      button: "Open the case",
     },
   },
 };
