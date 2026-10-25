@@ -1,8 +1,10 @@
+import Link from "next/link";
 import styles from "./page.module.css";
 
 const cases = [
   {
     n: "01",
+    href: "/cases/data-trust-monitor",
     title: "Data Trust Monitor",
     desc: "Reconciling a transaction pipeline with the official ledger and catching fraud with daily invariants.",
   },
@@ -53,9 +55,17 @@ export default function Home() {
             {cases.map((c) => (
               <li key={c.n} className={styles.card}>
                 <span className="mono muted">{c.n}</span>
-                <h2 className={styles.cardTitle}>{c.title}</h2>
+                <h2 className={styles.cardTitle}>
+                  {c.href ? (
+                    <Link href={c.href} className={styles.cardLink}>
+                      {c.title}
+                    </Link>
+                  ) : (
+                    c.title
+                  )}
+                </h2>
                 <p className={`muted ${styles.desc}`}>{c.desc}</p>
-                <span className={styles.pill}>In progress</span>
+                <span className={styles.pill}>{c.href ? "Live demo" : "In progress"}</span>
               </li>
             ))}
           </ol>
