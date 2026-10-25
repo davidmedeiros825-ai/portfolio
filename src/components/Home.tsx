@@ -36,14 +36,15 @@ export function Home({ t }: { t: Dict }) {
       <section id="work">
         <div className="sec-head"><h2>{t.work.head}</h2><p className="label">{t.work.sub}</p></div>
         <div className="cases">
-          {t.work.items.map((c, i) => {
+          {t.work.items.map((c) => {
+            const href = c.link ? t.paths[c.link as "case" | "coffee"] : null;
             const inner = (
               <>
                 <div className="meta"><b>{c.org}</b><span>{c.role}</span><span>{c.period}</span></div>
                 <div>
                   <h3>{c.title}</h3>
                   <p>{c.desc}</p>
-                  {i === 0 && <span className="go">{t.work.readCase}</span>}
+                  {href && <span className="go">{t.work.readCase}</span>}
                 </div>
                 <div className="where">
                   {c.chips.map((ch) => (
@@ -52,8 +53,8 @@ export function Home({ t }: { t: Dict }) {
                 </div>
               </>
             );
-            return i === 0 ? (
-              <Link key={c.title} className="case" href={t.paths.case}>{inner}</Link>
+            return href ? (
+              <Link key={c.title} className="case" href={href}>{inner}</Link>
             ) : (
               <div key={c.title} className="case">{inner}</div>
             );
