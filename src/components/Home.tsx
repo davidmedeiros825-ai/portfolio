@@ -37,7 +37,7 @@ export function Home({ t }: { t: Dict }) {
         <div className="sec-head"><h2>{t.work.head}</h2><p className="label">{t.work.sub}</p></div>
         <div className="cases">
           {t.work.items.map((c) => {
-            const href = c.link ? t.paths[c.link as "case" | "coffee"] : null;
+            const href = c.link ? t.paths[c.link as "case" | "coffee" | "segments"] : null;
             const inner = (
               <>
                 <div className="meta"><b>{c.org}</b><span>{c.role}</span><span>{c.period}</span></div>

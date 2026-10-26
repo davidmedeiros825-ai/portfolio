@@ -2,12 +2,13 @@ import type { Dict } from "./en";
 
 export const pt: Dict = {
   htmlLang: "pt-BR",
-  paths: { home: "/pt", case: "/pt/cases/cancelled-bets", coffee: "/pt/cases/vacuum-coffee", other: { coffee: "/cases/vacuum-coffee", home: "/", case: "/cases/cancelled-bets" } },
+  paths: { home: "/pt", case: "/pt/cases/cancelled-bets", coffee: "/pt/cases/vacuum-coffee", segments: "/pt/cases/player-segments", other: { segments: "/cases/player-segments", coffee: "/cases/vacuum-coffee", home: "/", case: "/cases/cancelled-bets" } },
   meta: {
     title: "David Medeiros · Dados, CRM e IA",
     description: "Eu descubro onde um negócio perde dinheiro e depois construo as ferramentas de dados e IA que resolvem.",
     caseTitle: "Apostas canceladas ainda contavam como volume · David Medeiros",
     coffeeTitle: "O café a vácuo perdia o vácuo · David Medeiros",
+    segmentsTitle: "176 mil jogadores segmentados por dia · David Medeiros",
   },
   nav: {
     aria: "Principal",
@@ -71,7 +72,7 @@ export const pt: Dict = {
         ],
       },
       {
-        link: "",
+        link: "segments",
         org: "Jogos online",
         role: "Head de Dados e Estratégia",
         period: "2025 a 2026",
@@ -308,6 +309,73 @@ export const pt: Dict = {
     next: {
       title: "Leia o outro caso",
       text: "Apostas canceladas ainda contavam como volume. Como uma conciliação revelou isso, e as checagens diárias que agora pegam no primeiro dia.",
+      button: "Abrir o caso",
+    },
+  },
+  segments: {
+    back: "← Todos os casos",
+    label: "Caso 02 · Apostas online · CRM e experimentos",
+    title: "De públicos em planilha a 176 mil jogadores segmentados por dia, com um grupo de controle que provou o ganho.",
+    facts: [
+      { dt: "Meu papel", dd: "Head de Dados e Estratégia" },
+      { dt: "Time", dd: "5 pessoas, reportando ao CEO" },
+      { dt: "Ferramentas", dd: "BigQuery, Python, plataforma de CRM" },
+      { dt: "Quando", dd: "2026" },
+    ],
+    flow: {
+      aria: "Onde este caso entra no fluxo do dinheiro",
+      head: "Onde este caso entra",
+      tag: "Reter e aumentar o valor do cliente",
+    },
+    s1: {
+      step: "1 · O negócio",
+      title: "Todo bônus é uma aposta",
+      p1: "O CRM manda bônus, giros grátis e mensagens para o jogador voltar. Cada um custa dinheiro. Enviado a quem está para sair, ele pode se pagar. Enviado a um caçador de bônus ou a quem já ganha da casa, é perda pura.",
+      formula: "Retorno da campanha = jogo extra que ela causa − custo do bônus",
+      p2: "A palavra difícil é \"extra\". Tem jogador que volta de qualquer jeito. Sem um grupo que não recebe nada, não dá para saber o que a campanha causou.",
+    },
+    s2: {
+      step: "2 · O vazamento",
+      title: "A mesma oferta para todos, e nenhum jeito de medir",
+      p1: "Os públicos eram montados à mão em planilhas e atualizados quando alguém tinha tempo. Então o caçador de bônus recebia a mesma oferta que o jogador fiel. E o relatório de reativação contava todo mundo que voltava, inclusive quem voltaria sozinho. No papel, uma semana de reativação parecia um prejuízo de seis dígitos, e ninguém sabia dizer quanto do retorno a campanha tinha causado de verdade.",
+    },
+    s3: {
+      step: "3 · O que eu fiz",
+      title: "Segmentar toda manhã e medir contra um controle",
+      items: [
+        { bold: "Transformei as regras de segmentação num processo diário", text: " do BigQuery para o CRM. A primeira rodada em produção classificou 176.190 jogadores, sem nenhum erro." },
+        { bold: "Sete segmentos:", text: " quatro faixas de valor pelo tamanho do depósito, caçadores de bônus, jogadores que ganham da casa e jogadores ainda novos demais para avaliar." },
+        { bold: "O segmento decide o que o jogador pode receber:", text: " cada faixa de valor tem a sua roleta diária e a sua jornada, o teto de bônus segue a faixa, e o caçador de bônus fica fora das campanhas." },
+        { bold: "Freios de segurança:", text: " se um segmento muda de tamanho mais de 10%, ou mais de 5% dos jogadores trocam de segmento numa rodada, o processo para antes de chegar ao CRM. Calibrado em 56 dias, em que a troca normal era de 0,72% ao dia." },
+        { bold: "Um grupo de controle de 20%", text: " em cada jornada de reativação, ligado com o time de CRM, e uma leitura por faixa de inatividade que conta só jogo com dinheiro real, sem login nem giro grátis." },
+      ],
+    },
+    s4: {
+      step: "4 · O resultado",
+      title: "O que o grupo de controle mostrou",
+      chart: {
+        aria: "Parcela de jogadores que voltou a jogar com dinheiro real em até 7 dias, tratado contra controle. 8 a 15 dias inativo: 10,4% contra 9,2%. 16 a 30 dias: 13,2% contra 6,7%. 31 a 60 dias: 6,7% contra 4,8%.",
+        bands: ["8 a 15 dias inativo", "16 a 30 dias inativo", "31 a 60 dias inativo"],
+        treated: "Recebeu a campanha",
+        control: "Controle, não recebeu nada",
+      },
+      caption: "Voltou a jogar com dinheiro real em até 7 dias. Primeira leitura, depois de duas semanas de grupo de controle.",
+      results: [
+        { num: "+6,5 pp", text: "de retorno ao jogo para quem estava de 16 a 30 dias inativo: 13,2% contra 6,7%, quase o dobro" },
+        { num: "176 mil", text: "jogadores segmentados toda manhã, direto no CRM" },
+        { num: "3x", text: "o resultado que tínhamos estimado antes de existir o grupo de controle" },
+      ],
+      closing:
+        "Só a faixa de 16 a 30 dias saiu do ruído, e o efeito foi no jogo, ainda não no depósito. A faixa de 8 a 15 dias não mostrou nada em uma semana, então as mensagens iniciais dela eram custo sem retorno. É para isso que serve o grupo de controle: saber o que cortar, não só o que comemorar.",
+    },
+    s5: {
+      step: "O que aprendi",
+      title: "Sem grupo de controle, você dá nota para si mesmo",
+      text: "A estimativa feita antes do controle era três vezes menor para a faixa que funcionou e não enxergava a que não funcionou. Hoje toda campanha começa com a pergunta: quem não vai receber?",
+    },
+    next: {
+      title: "Leia o próximo caso",
+      text: "O café a vácuo perdia o vácuo no caminho até a prateleira. Seguir o pacote desde a fábrica reduziu as avarias em 40%.",
       button: "Abrir o caso",
     },
   },

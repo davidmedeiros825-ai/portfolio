@@ -1,11 +1,12 @@
 export const en = {
   htmlLang: "en",
-  paths: { home: "/", case: "/cases/cancelled-bets", coffee: "/cases/vacuum-coffee", other: { coffee: "/pt/cases/vacuum-coffee", home: "/pt", case: "/pt/cases/cancelled-bets" } },
+  paths: { home: "/", case: "/cases/cancelled-bets", coffee: "/cases/vacuum-coffee", segments: "/cases/player-segments", other: { segments: "/pt/cases/player-segments", coffee: "/pt/cases/vacuum-coffee", home: "/pt", case: "/pt/cases/cancelled-bets" } },
   meta: {
     title: "David Medeiros · Data, CRM & AI",
     description: "I find where a business leaks money, then build the data and AI tools that fix it.",
     caseTitle: "Cancelled bets were still counted as volume · David Medeiros",
     coffeeTitle: "Vacuum-packed coffee was losing its vacuum · David Medeiros",
+    segmentsTitle: "176k players segmented daily · David Medeiros",
   },
   nav: {
     aria: "Main",
@@ -69,7 +70,7 @@ export const en = {
         ],
       },
       {
-        link: "",
+        link: "segments",
         org: "Online gaming",
         role: "Head of Data & Strategy",
         period: "2025 to 2026",
@@ -306,6 +307,73 @@ export const en = {
     next: {
       title: "Read the other case",
       text: "Cancelled bets were still counted as volume. How a reconciliation exposed it, and the daily checks that now catch it on day one.",
+      button: "Open the case",
+    },
+  },
+  segments: {
+    back: "← All cases",
+    label: "Case 02 · Online gaming · CRM and experiments",
+    title: "From spreadsheet audiences to 176k players segmented daily, with a holdout that proved the lift.",
+    facts: [
+      { dt: "My role", dd: "Head of Data & Strategy" },
+      { dt: "Team", dd: "5 people, reporting to the CEO" },
+      { dt: "Tools", dd: "BigQuery, Python, CRM platform" },
+      { dt: "When", dd: "2026" },
+    ],
+    flow: {
+      aria: "Where this case sits in the money flow",
+      head: "Where this case sits",
+      tag: "Retain and grow lifetime value",
+    },
+    s1: {
+      step: "1 · The business",
+      title: "Every bonus is a bet",
+      p1: "The CRM sends bonuses, free spins and messages to keep players coming back. Each one costs money. Sent to a player about to leave, it can pay for itself. Sent to a bonus hunter or to someone who already beats the house, it is pure loss.",
+      formula: "Campaign return = extra play it causes − what the bonus costs",
+      p2: "The hard word is \"extra\". Some players come back anyway. Without a group that gets nothing, you can't tell what the campaign caused.",
+    },
+    s2: {
+      step: "2 · The leak",
+      title: "Same offer for everyone, and no way to grade it",
+      p1: "Audiences were built by hand in spreadsheets and refreshed when someone had time, so bonus hunters got the same offers as loyal players. And the reactivation report counted everyone who came back, including those who would have returned on their own. On paper, one week of reactivation looked like a six-figure loss, and nobody could say how much of the return the campaign had actually caused.",
+    },
+    s3: {
+      step: "3 · What I did",
+      title: "Segment every morning, then measure against a control",
+      items: [
+        { bold: "Turned the segmentation rules into a daily pipeline", text: " from BigQuery to the CRM. The first production run tagged 176,190 players with zero errors." },
+        { bold: "Seven segments:", text: " four value tiers by deposit size, bonus hunters, players who beat the house, and players still too new to judge." },
+        { bold: "The segment decides what a player can receive:", text: " each value tier has its own daily wheel and journey, bonus caps follow the tier, and bonus hunters are left out of campaigns." },
+        { bold: "Safety brakes:", text: " if a segment changes size by more than 10%, or more than 5% of players switch segment in one run, the run stops before anything reaches the CRM. Calibrated on 56 days, where the normal switch rate was 0.72% a day." },
+        { bold: "A control group of 20%", text: " in each reactivation journey, set up with the CRM team, and a reading by inactivity band that counts real-money play only, not logins or free spins." },
+      ],
+    },
+    s4: {
+      step: "4 · The result",
+      title: "What the control group showed",
+      chart: {
+        aria: "Share of players who returned to real-money play within 7 days, treated versus control. 8 to 15 days inactive: 10.4% versus 9.2%. 16 to 30 days: 13.2% versus 6.7%. 31 to 60 days: 6.7% versus 4.8%.",
+        bands: ["8 to 15 days inactive", "16 to 30 days inactive", "31 to 60 days inactive"],
+        treated: "Got the campaign",
+        control: "Control, got nothing",
+      },
+      caption: "Returned to real-money play within 7 days. First reading, after two weeks of control group.",
+      results: [
+        { num: "+6.5 pp", text: "return to play for players 16 to 30 days inactive: 13.2% against 6.7%, nearly double" },
+        { num: "176k", text: "players segmented every morning, straight into the CRM" },
+        { num: "3x", text: "the lift we had estimated before the control group existed" },
+      ],
+      closing:
+        "Only the 16 to 30 day band moved beyond noise, and the effect was on play, not yet on deposits. The 8 to 15 day band showed nothing in a week, so its early messages were cost without return. That is what a control group is for: knowing what to cut, not only what to celebrate.",
+    },
+    s5: {
+      step: "What I learned",
+      title: "Without a control group, you are grading yourself",
+      text: "The estimate made before the holdout was three times too low for the band that worked and could not see the one that didn't. Now every campaign starts with the question: who is not getting it?",
+    },
+    next: {
+      title: "Read the next case",
+      text: "Vacuum-packed coffee was losing its vacuum on the way to the shelf. Following the pack from the factory cut damages by 40%.",
       button: "Open the case",
     },
   },

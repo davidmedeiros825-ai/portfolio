@@ -129,6 +129,8 @@ footer{padding-block:24px 40px;color:var(--muted);font-size:.85rem}
 .formula{font:500 1rem/1.5 var(--data);background:var(--sheet);border:1px solid var(--line);padding:14px 16px;overflow-x:auto}
 .chart{background:var(--sheet);border:1px solid var(--line);padding:18px}
 .chart svg{width:100%;height:auto;display:block}
+.chart.wide{overflow-x:auto}
+.chart.wide svg{min-width:560px}
 .chart text{font-family:var(--data);font-size:12px;fill:var(--muted)}
 .cap{font-size:.85rem;color:var(--muted);margin-top:8px}
 .results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
